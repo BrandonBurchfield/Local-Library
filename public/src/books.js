@@ -29,7 +29,7 @@ function partitionBooksByBorrowedStatus(books) {
             
         });
    checkedOutAndAvailableBooks.push(checkedOutBooks, availableBooks);
-    console.log(checkedOutAndAvailableBooks)
+    
         return checkedOutAndAvailableBooks;
     }
 

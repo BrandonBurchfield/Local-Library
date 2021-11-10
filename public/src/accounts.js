@@ -38,13 +38,15 @@ function getBooksPossessedByAccount(account, books, authors) {
                   
                   authors.forEach((author) => {
                     if (author.id === book.authorId) {
-                      possessedBooksArray[i].author = {
-                        id: author.id,
-                        name: {
-                          first: author.name.first,
-                          last: author.name.last
-                        }
-                      }
+                      possessedBooksArray[i].author =
+                      createAuthorRecord(author.id, author.name.first, author.name.last)
+                      //  {
+                      //   id: author.id,
+                      //   name: {
+                      //     first: author.name.first,
+                      //     last: author.name.last
+                      //   }
+                      // }
                     }
                   });                                        
                 }
@@ -54,6 +56,16 @@ function getBooksPossessedByAccount(account, books, authors) {
     return possessedBooksArray;
     }
 
+   function createAuthorRecord(authorId, firstName, lastName) {
+     let record = {
+        id: authorId,
+        name: {
+          first: firstName,
+          last: lastName
+        }
+      }
+      return record;
+    }
 module.exports = {
   findAccountById,
   sortAccountsByLastName,
